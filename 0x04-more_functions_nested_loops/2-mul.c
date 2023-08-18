@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "main.h"
+
 /**
 *mul multiplies 2 integers
 *@m: first integer
