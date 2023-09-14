@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "variadic_functions.h"
 
 /**
  * main - prints the min number of coins to make change
@@ -8,6 +9,7 @@
  * @argv: arguments
  * Return: 0
  */
+
 int main(int argc, char **argv)
 {
 	int total, count;
