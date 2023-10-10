@@ -12,22 +12,19 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {	char *t_out;
-	unsigned int b = 0, len_1 = 0, t_len = 0, len_2 = 0;
+	unsigned int b = 0, e = 0, len_1 = 0, t_len = 0, len_2 = 0;
 
-	if (s1 == NULL || s2 == NULL)
-	{
+	if (s1 == NULL)
 		s1 = "";
+
+	if (s2 == NULL)
 		s2 = "";
-	}
 
 	while (s1[len_1] != '\0')
 		len_1++;
 
-	while (s2[len_2] != '\0')
+	while (s2[len_2] != '\0' && len_2 < n)
 		len_2++;
-
-	if (len_2 < n)
-		n = len_2;
 
 	t_len = len_1 + n;
 
@@ -36,16 +33,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (t_out == NULL)
 		return (NULL);
 
-	while (b < t_len)
+	while (s1[b] != '\0')
 	{
-		if (b < len_1)
-			t_out[b] = s1[b];
-		else
-		t_out[b] = s2[b - len_1];
-		b++;
+		t_out[b] = s1[b];
 	}
 
-	t_out[b] = '\0';
+	while (e < len_2 && s2[e] != '\0')
+	{
+		t_out[b + e] = s2[e];
+		e++;
+	}
+
+	t_out[b + e] = '\0';
 
 	return (t_out);
 
