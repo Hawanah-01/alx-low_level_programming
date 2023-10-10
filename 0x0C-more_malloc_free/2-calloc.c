@@ -24,12 +24,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (msuc == NULL)
 		return (NULL);
-
-	while (y < b)
-	{
+	for (y = 0; y < b; b++)
 		msuc[y] = 0;
-		b++;
-	}
 
 	return (msuc);
 }
